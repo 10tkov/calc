@@ -6,11 +6,9 @@ import (
 
 func main() {
 	var num1, num2 float64
-	var calculator string
-
-	fmt.Scan(&num1, &num2, &calculator)
-
-	switch calculator {
+	var calc string
+	fmt.Scan(&num1, &num2, &calc)
+	switch calc {
 	case "+":
 		fmt.Println(num1 + num2)
 	case "-":
@@ -18,15 +16,20 @@ func main() {
 	case "*":
 		fmt.Println(num1 * num2)
 	case "/":
-		fmt.Println(num1 / num2)
-	case "%":
-		if int(num2) == 0 {
+		if num2 == 0 {
 			fmt.Println("Делить на ноль нельзя!")
 		} else {
-			result := int(num1) % int(num2)
-			fmt.Printf("Результат: %d\n", result)
+			fmt.Println(num1 / num2)
+		}
+	case "%":
+		intNum1 := int(num1)
+		intNum2 := int(num2)
+		if intNum2 == 0 {
+			fmt.Println("Делить на ноль нельзя!")
+		} else {
+			fmt.Println(intNum1 % intNum2)
 		}
 	default:
-		fmt.Println("ошибка")
+		fmt.Println("ОшибОчка")
 	}
 }
